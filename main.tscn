@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsedxgxl4ua55"]
+
+[ext_resource type="PackedScene" uid="uid://v7an1y0buf10" path="res://player.tscn" id="1_i1ln3"]
+[ext_resource type="Script" path="res://main.gd" id="1_k8p08"]
+[ext_resource type="PackedScene" uid="uid://bxplb4koj7f1l" path="res://fruit.tscn" id="2_rwdmk"]
+[ext_resource type="PackedScene" uid="uid://c5r3e03kob5td" path="res://wall.tscn" id="4_c6ans"]
+[ext_resource type="PackedScene" uid="uid://dn0qdvrj0imyo" path="res://hud.tscn" id="5_hsg3m"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k8p08")
+fruit_scene = ExtResource("2_rwdmk")
+
+[node name="Wall" parent="." instance=ExtResource("4_c6ans")]
+
+[node name="Player" parent="." instance=ExtResource("1_i1ln3")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(690, 50)
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("5_hsg3m")]
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

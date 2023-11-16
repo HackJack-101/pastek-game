@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5r3e03kob5td"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_b27hx"]
+[ext_resource type="Texture2D" uid="uid://b4j1krwavtc6g" path="res://art/blank.png" id="2_q5vhm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nbk34"]
+friction = 0.1
+rough = true
+absorbent = true
+
+[node name="Wall" type="StaticBody2D"]
+position = Vector2(465, -2)
+collision_priority = 2.0
+physics_material_override = SubResource("PhysicsMaterial_nbk34")
+script = ExtResource("1_b27hx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+process_mode = 3
+position = Vector2(0, 3)
+polygon = PackedVector2Array(2.08165e-12, 2.08165e-12, 2.08165e-12, 720, 480, 720, 480, 2.08165e-12, 440, 2.08165e-12, 440, 680, 40, 680, 40, 2.08165e-12)
+
+[node name="LeftWall" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(39.168, 343.973)
+scale = Vector2(-1.54689, 680.977)
+texture = ExtResource("2_q5vhm")
+
+[node name="RightWall" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(440.59, 343.754)
+scale = Vector2(-1.08591, 681.509)
+texture = ExtResource("2_q5vhm")
+
+[node name="BottomWall" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(239.996, 683.77)
+scale = Vector2(-401.002, -1.46911)
+texture = ExtResource("2_q5vhm")

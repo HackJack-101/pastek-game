@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxplb4koj7f1l"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://0pumle7i1sod" path="res://fruit_physics_material.tres" id="1_leimg"]
+[ext_resource type="Script" path="res://fruit.gd" id="1_r1wd5"]
+[ext_resource type="Texture2D" uid="uid://cneiit84cl3m1" path="res://art/cerise.png" id="2_d2sfx"]
+[ext_resource type="Texture2D" uid="uid://dmsyvhf0qk26p" path="res://art/fraise.png" id="3_jweft"]
+[ext_resource type="Texture2D" uid="uid://b3y3ucypm5cul" path="res://art/raisin.png" id="4_kqu4t"]
+[ext_resource type="Texture2D" uid="uid://gmv3go0q64p1" path="res://art/orange.png" id="5_hu4mw"]
+[ext_resource type="Texture2D" uid="uid://eosku5vuo63t" path="res://art/kaki.png" id="6_x0qwd"]
+[ext_resource type="Texture2D" uid="uid://dwjdanb0850h" path="res://art/pomme.png" id="7_25wr8"]
+[ext_resource type="Texture2D" uid="uid://b2l8wlvnyatx8" path="res://art/ananas.png" id="7_b0aul"]
+[ext_resource type="Texture2D" uid="uid://bxvru7msj0tj0" path="res://art/peche.png" id="9_hs6fi"]
+[ext_resource type="Texture2D" uid="uid://d21nkm5g1ksy3" path="res://art/melon.png" id="10_oxkj6"]
+[ext_resource type="Texture2D" uid="uid://sj5byguh2l0s" path="res://art/pasteque.png" id="11_i2f2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyv6j"]
+radius = 203.0
+
+[node name="Fruit" type="RigidBody2D"]
+process_mode = 3
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_leimg")
+script = ExtResource("1_r1wd5")
+
+[node name="CeriseSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_d2sfx")
+
+[node name="FraiseSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_jweft")
+
+[node name="RaisinSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_kqu4t")
+
+[node name="OrangeSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_hu4mw")
+
+[node name="KakiSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_x0qwd")
+
+[node name="PommeSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_25wr8")
+
+[node name="AnanasSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_b0aul")
+
+[node name="PecheSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_hs6fi")
+
+[node name="MelonSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_oxkj6")
+
+[node name="PastequeSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_i2f2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hyv6j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
